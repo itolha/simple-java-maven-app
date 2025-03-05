@@ -32,13 +32,18 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run tests
-      run: mvn surefire:test -Dtest=TestCircle
+      run: mvn surefire:test -Dtest=AppTest
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v4
       with:
         name: surefire-test-results
         path: target/surefire-reports/
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      with:
+        files: target/surefire-reports/TEST-*.xml
+
 
 #    - name: Custom stage
 #      run: |
