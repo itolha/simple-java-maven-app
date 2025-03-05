@@ -44,6 +44,7 @@ jobs:
       with:
         files: target/surefire-reports/TEST-*.xml
 
+
 #    - name: Custom stage
 #      run: |
 #       echo "✅ Running Custom Stage..."
